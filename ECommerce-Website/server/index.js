@@ -17,7 +17,9 @@ const PORT = process.env.PORT || 8000;
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
-Connection(username, password);
+const URL = process.env.MONGODB_URL || mongodb://${USERNAME}:${PASSWORD}@ecommerce-web-shard-00-00.wnaj9.mongodb.net:27017,ecommerce-web-shard-00-01.wnaj9.mongodb.net:27017,ecommerce-web-shard-00-02.wnaj9.mongodb.net:27017/ECOMMERCE?ssl=true&replicaSet=atlas-sjmqa0-shard-0&authSource=admin&retryWrites=true&w=majority
+
+Connection(URL);
 
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
 DefaultData();
