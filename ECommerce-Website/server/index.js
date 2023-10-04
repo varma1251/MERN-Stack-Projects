@@ -21,6 +21,10 @@ const URL = process.env.MONGODB_URL || mongodb://${USERNAME}:${PASSWORD}@ecommer
 
 Connection(URL);
 
+if (process.env.node_ENV === 'production') {
+  app.use(express.static('client/build'))
+}
+
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
 DefaultData();
 
